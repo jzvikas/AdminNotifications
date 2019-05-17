@@ -1,4 +1,4 @@
-# AdminNotifications
+# Admin Notifications / Уведомления администратора (Telegram, Viber)
 
 Модуль уведомлений администраторов магазина Opencart (OcStore) о новом:
 1) заказе
