@@ -8,14 +8,14 @@ class ModelExtensionModuleGixOCNotifications extends Model {
 
 	public function write($data) {
 		foreach ($data as $key=>$value){
-			$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias (`query`, `keyword`) VALUES ('" . $key . "', '" . $value . "')");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias (`query`, `keyword`) VALUES ('" . $this->db->escape($key) . "', '" . $this->db->escape($value) . "')");
 		}
 
 		return true;
 	}
 
 	public function delete($keyword) {
-		$this->db->query("DELETE FROM `" . DB_PREFIX . "url_alias` WHERE `keyword` = '" . $keyword . "'");
+		$this->db->query("DELETE FROM `" . DB_PREFIX . "url_alias` WHERE `keyword` = '" . $this->db->escape($keyword) . "'");
 	}
 
 	public function editSettingValue($code = '', $key = '', $value = '', $store_id = 0) {
